@@ -1,0 +1,11 @@
+{
+  "include": ["index.ts"],
+  "compilerOptions": {
+    "emitDeclarationOnly": false,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
+  }
+}
