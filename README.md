@@ -1,15 +1,22 @@
 # happy-headers
 
-To install dependencies:
+Installation
 
 ```bash
-bun install
+yarn add happy-headers
 ```
 
-To run:
+Usage
 
-```bash
-bun run index.ts
+```ts
+import getHeaders from 'happy-headers'
+
+fetch('/friends-v1', {
+  ...
+  headers: {
+    Authorization: 'Bearer xyz...',
+    ...getHeaders()
+  },
+  ...
+})
 ```
-
-This project was created using `bun init` in bun v1.0.25. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
