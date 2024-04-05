@@ -1,4 +1,3 @@
-// credit to retoheusser on Github
 const data = [
   {
     validFrom: "2024-04-01T00:00:00.000Z",
