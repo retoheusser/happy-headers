@@ -416,7 +416,7 @@ const data = [
     signature: "MToxNzc0MjI0MDAwOp406o5g+DnTZLA7TWs9w4XKJNcLfgAbVeG3RSAQmvae",
   },
 ];
-export function getHeaders() {
+export default function getHeaders() {
   const now = new Date().toISOString();
   const { signature } = data.findLast(({ validFrom }) => validFrom <= now);
   return {
