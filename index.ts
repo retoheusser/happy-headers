@@ -418,10 +418,25 @@ const data = [
 ];
 export default function getHeaders() {
   const now = new Date().toISOString();
-  const { signature } = data.findLast(({ validFrom }) => validFrom <= now);
+  const { signature } = data.findLast(({ validFrom }) => validFrom <= now)!;
   return {
     "bereal-timezone": "Europe/Paris",
     "bereal-device-id": "820B5AA5-0FDE-4199-93C8-64B12D08D5EE",
     "bereal-signature": signature,
   };
 }
+
+declare global {
+    interface Array<T> {
+        findLast(predicate: (value: T, index: number, array: T[]) => boolean): T | undefined;
+    }
+}
+
+Array.prototype.findLast = function (predicate: (value: any, index: number, array: any[]) => boolean) {
+    for (let i = this.length - 1; i >= 0; i--) {
+        if (predicate(this[i], i, this)) {
+            return this[i];
+        }
+    }
+    return null;
+};
